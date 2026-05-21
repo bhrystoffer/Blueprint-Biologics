@@ -1,0 +1,11 @@
+# Blueprint Biologics
+# Production domain placeholder: replace with the verified domain before launch.
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /thank-you.html
+Disallow: /wholesale-thank-you.html
+Disallow: /product-detail.html
+
+Sitemap: https://blueprintbiologics.com/sitemap.xml

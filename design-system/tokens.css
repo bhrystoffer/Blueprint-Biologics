@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Blueprint Biologics, Design Tokens
+   Phase 1 foundation. Framework-agnostic CSS custom properties.
+   Components in Phase 2 and later must consume these tokens, not raw values.
+   See BLUEPRINT_DESIGN_SYSTEM.md for the full rationale.
+   ========================================================================== */
+
+:root {
+  /* --- Color, backgrounds ------------------------------------------------ */
+  --bg-base: #FFFFFF;
+  --bg-soft: #F7F9FC;
+  --bg-muted: #EEF2F7;
+  --bg-grid: #E3E9F2;
+
+  /* --- Color, text ------------------------------------------------------- */
+  --text-strong: #0A1A2F;
+  --text-body: #1F2D3D;
+  --text-muted: #5B6B7F;
+  --text-on-dark: #F4F8FF;
+
+  /* --- Color, accents ---------------------------------------------------- */
+  --accent: #1F6FEB;
+  --accent-hover: #1A5FD0;
+  --accent-soft: #E8F1FE;
+  --cyan: #22B8CF;
+  --teal: #0FA3A3;
+
+  /* --- Color, lines and feedback ---------------------------------------- */
+  --border: #D9E1EC;
+  --border-strong: #BCC8D8;
+  --success: #1E9E6A;
+  --warning: #B7791F;
+  --danger: #C0392B;
+
+  /* --- Color, dark surfaces --------------------------------------------- */
+  --surface-dark: #0A1A2F;
+  --surface-dark-2: #10243D;
+
+  /* --- Typography, families --------------------------------------------- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Plus Jakarta Sans", var(--font-sans);
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* --- Typography, fluid scale ------------------------------------------ */
+  --fs-display: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  --fs-h1: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --fs-h2: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+  --fs-h3: clamp(1.15rem, 1.08rem + 0.35vw, 1.4rem);
+  --fs-body: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
+  --fs-small: 0.875rem;
+  --fs-mono: clamp(0.8125rem, 0.8rem + 0.1vw, 0.875rem);
+
+  /* --- Typography, line height and tracking ----------------------------- */
+  --lh-heading: 1.15;
+  --lh-body: 1.6;
+  --tracking-heading: -0.01em;
+  --tracking-eyebrow: 0.08em;
+
+  /* --- Spacing scale, 4px base ------------------------------------------ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --container-max: 1200px;
+  --container-wide: 1320px;
+  --gutter: 20px;
+  --section-pad-y: var(--space-8);
+
+  /* --- Radius ------------------------------------------------------------ */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* --- Shadows, soft and low -------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(10, 26, 47, 0.06);
+  --shadow-md: 0 6px 20px rgba(10, 26, 47, 0.08);
+  --shadow-lg: 0 16px 40px rgba(10, 26, 47, 0.10);
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 150ms;
+  --dur-mid: 250ms;
+
+  /* --- Focus ring -------------------------------------------------------- */
+  --focus-ring: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 48px;
+    --section-pad-y: var(--space-10);
+  }
+}

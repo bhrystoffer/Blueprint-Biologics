@@ -1,0 +1,14 @@
+{
+  "name": "blueprint-biologics",
+  "version": "0.8.0",
+  "private": true,
+  "description": "Blueprint Biologics website, static site with Vercel serverless functions for form submission via Resend.",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "resend": "^3.5.0"
+  }
+}
