@@ -3964,76 +3964,58 @@ main {
 
 /* ==========================================================================
    FINAL MOBILE OVERRIDE, must remain at the very bottom of this file.
-   Forces the compliance strip into a single compact horizontal row on
-   viewports under 768px and swaps each item's text for a shorter
-   `data-mobile` label so the full strip fits cleanly on a 390px phone.
-   `!important` is used defensively so no later rule can break this.
+   On viewports under 768px, hide every per-item span and the blue dot,
+   then render the full compliance message as a single centered line via
+   `::before` content injection. Tuned to fit a 390px phone with no
+   wrapping and no horizontal scroll. `!important` is used defensively so
+   no later rule can break this.
    ========================================================================== */
 @media (max-width: 767px) {
   .compliance-strip {
     width: 100% !important;
     overflow: hidden !important;
-    font-size: 11px !important;
-    line-height: 1 !important;
-    letter-spacing: 0.06em !important;
+    padding: 0 !important;
   }
 
   .compliance-strip__inner {
     display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 12px !important;
-    padding: 7px 16px !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    padding: 6px 10px !important;
     margin: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
     white-space: nowrap !important;
-    text-align: left !important;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    min-height: 0 !important;
   }
 
-  .compliance-strip__inner::-webkit-scrollbar {
+  /* Hide the individual per-item spans on mobile; we render a single
+     consolidated line via ::before below. */
+  .compliance-strip__item {
     display: none !important;
   }
 
-  /* Collapse the visible long text and inject the short data-mobile label
-     via ::after. font-size: 0 on the item zeroes the text node, then we
-     re-set font-size on the dot and the ::after so they remain visible. */
-  .compliance-strip__item {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    gap: 6px !important;
-    margin: 0 !important;
-    padding: 0 12px 0 0 !important;
-    width: auto !important;
-    min-width: max-content !important;
-    text-align: left !important;
-    white-space: nowrap !important;
-    font-size: 0 !important; /* hides the long text content */
+  /* Single-line consolidated compliance text, fitted to ~390px. */
+  .compliance-strip__inner::before {
+    content: "RESEARCH USE ONLY \00B7 NOT FOR CONSUMPTION \00B7 WHOLESALE ONLY \00B7 QUALIFIED BUYERS";
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    color: rgba(244, 248, 255, 0.78);
+    font-size: 8px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
   }
 
-  .compliance-strip__item::after {
-    content: attr(data-mobile);
-    font-size: 11px !important;
-    line-height: 1 !important;
-    color: rgba(244, 248, 255, 0.85) !important;
-    letter-spacing: 0.06em !important;
-    text-transform: uppercase !important;
-    font-weight: 500 !important;
-  }
-
-  .compliance-strip__item:not(:last-child) {
-    border-right: 1px solid rgba(244, 248, 255, 0.18) !important;
-  }
-
+  /* Remove the blue dot entirely on mobile. */
   .compliance-strip__dot {
-    width: 4px !important;
-    height: 4px !important;
-    flex: 0 0 4px !important;
-    box-shadow: 0 0 6px var(--accent) !important;
+    display: none !important;
   }
 }
