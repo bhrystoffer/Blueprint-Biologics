@@ -74,58 +74,8 @@ main {
   font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   Compliance strip, mobile: single compact line with subtle scroll if needed
-   -------------------------------------------------------------------------- */
-@media (max-width: 767px) {
-  .compliance-strip {
-    font-size: 0.625rem; /* about 10px */
-    letter-spacing: 0.06em;
-  }
-
-  .compliance-strip__inner {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 14px;
-    padding-block: 6px;
-    /* Allow internal horizontal scroll only when content exceeds width,
-       without ever pushing the page to overflow */
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    text-align: left;
-    white-space: nowrap;
-  }
-  .compliance-strip__inner::-webkit-scrollbar { display: none; }
-
-  .compliance-strip__item {
-    flex: 0 0 auto;
-    gap: 6px;
-    position: relative;
-    padding-right: 14px;
-    white-space: nowrap;
-  }
-
-  /* Thin vertical divider between items (skip after the last) */
-  .compliance-strip__item:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 10px;
-    background: rgba(244, 248, 255, 0.18);
-  }
-
-  /* The pulsing dot can shrink slightly on mobile */
-  .compliance-strip__dot {
-    width: 4px;
-    height: 4px;
-    box-shadow: 0 0 6px var(--accent);
-  }
-}
+/* (Earlier compliance-strip mobile override was relocated to the very
+   bottom of this file so cascade order is unambiguous.) */
 
 /* --------------------------------------------------------------------------
    Header and navigation
@@ -4009,5 +3959,81 @@ main {
   .thanks-card {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+  }
+}
+
+/* ==========================================================================
+   FINAL MOBILE OVERRIDE, must remain at the very bottom of this file.
+   Forces the compliance strip into a single compact horizontal row on
+   viewports under 768px and swaps each item's text for a shorter
+   `data-mobile` label so the full strip fits cleanly on a 390px phone.
+   `!important` is used defensively so no later rule can break this.
+   ========================================================================== */
+@media (max-width: 767px) {
+  .compliance-strip {
+    width: 100% !important;
+    overflow: hidden !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .compliance-strip__inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    padding: 7px 16px !important;
+    margin: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compliance-strip__inner::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Collapse the visible long text and inject the short data-mobile label
+     via ::after. font-size: 0 on the item zeroes the text node, then we
+     re-set font-size on the dot and the ::after so they remain visible. */
+  .compliance-strip__item {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 12px 0 0 !important;
+    width: auto !important;
+    min-width: max-content !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    font-size: 0 !important; /* hides the long text content */
+  }
+
+  .compliance-strip__item::after {
+    content: attr(data-mobile);
+    font-size: 11px !important;
+    line-height: 1 !important;
+    color: rgba(244, 248, 255, 0.85) !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+  }
+
+  .compliance-strip__item:not(:last-child) {
+    border-right: 1px solid rgba(244, 248, 255, 0.18) !important;
+  }
+
+  .compliance-strip__dot {
+    width: 4px !important;
+    height: 4px !important;
+    flex: 0 0 4px !important;
+    box-shadow: 0 0 6px var(--accent) !important;
   }
 }
