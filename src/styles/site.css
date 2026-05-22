@@ -75,6 +75,59 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Compliance strip, mobile: single compact line with subtle scroll if needed
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .compliance-strip {
+    font-size: 0.625rem; /* about 10px */
+    letter-spacing: 0.06em;
+  }
+
+  .compliance-strip__inner {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 14px;
+    padding-block: 6px;
+    /* Allow internal horizontal scroll only when content exceeds width,
+       without ever pushing the page to overflow */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .compliance-strip__inner::-webkit-scrollbar { display: none; }
+
+  .compliance-strip__item {
+    flex: 0 0 auto;
+    gap: 6px;
+    position: relative;
+    padding-right: 14px;
+    white-space: nowrap;
+  }
+
+  /* Thin vertical divider between items (skip after the last) */
+  .compliance-strip__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 10px;
+    background: rgba(244, 248, 255, 0.18);
+  }
+
+  /* The pulsing dot can shrink slightly on mobile */
+  .compliance-strip__dot {
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 6px var(--accent);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Header and navigation
    -------------------------------------------------------------------------- */
 
