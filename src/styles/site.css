@@ -3963,13 +3963,20 @@ main {
 }
 
 /* ==========================================================================
-   FINAL MOBILE OVERRIDE, must remain at the very bottom of this file.
-   On viewports under 768px, hide every per-item span and the blue dot,
-   then render the full compliance message as a single centered line via
-   `::before` content injection. Tuned to fit a 390px phone with no
-   wrapping and no horizontal scroll. `!important` is used defensively so
-   no later rule can break this.
+   FINAL COMPLIANCE STRIP OVERRIDE, must remain at the very bottom of file.
+   Desktop: render four discrete items inline. Mobile: render a single
+   compact line. Blue dot is always hidden.
    ========================================================================== */
+.compliance-strip__mobile { display: none; }
+
+.compliance-strip__desktop {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.compliance-strip__dot { display: none !important; }
+
 @media (max-width: 767px) {
   .compliance-strip {
     width: 100% !important;
@@ -3983,39 +3990,41 @@ main {
     justify-content: center !important;
     flex-wrap: nowrap !important;
     gap: 0 !important;
-    padding: 6px 10px !important;
+    padding: 6px 6px !important;
     margin: 0 !important;
+    min-height: 22px !important;
+    max-height: 26px !important;
     overflow: hidden !important;
     white-space: nowrap !important;
-    min-height: 0 !important;
+    text-align: center !important;
   }
 
-  /* Hide the individual per-item spans on mobile; we render a single
-     consolidated line via ::before below. */
+  .compliance-strip__desktop,
   .compliance-strip__item {
     display: none !important;
   }
 
-  /* Single-line consolidated compliance text, fitted to ~390px. */
-  .compliance-strip__inner::before {
-    content: "RESEARCH USE ONLY \00B7 NOT FOR CONSUMPTION \00B7 WHOLESALE ONLY \00B7 QUALIFIED BUYERS";
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    color: rgba(244, 248, 255, 0.78);
-    font-size: 8px;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
+  .compliance-strip__mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    color: rgba(244, 248, 255, 0.78) !important;
+    font-size: clamp(6.8px, 1.95vw, 8.5px) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.01em !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
   }
 
-  /* Remove the blue dot entirely on mobile. */
-  .compliance-strip__dot {
-    display: none !important;
-  }
+  .compliance-strip__dot { display: none !important; }
+}
+
+@media (min-width: 768px) {
+  .compliance-strip__mobile { display: none !important; }
+  .compliance-strip__desktop { display: inline-flex !important; }
+  .compliance-strip__dot { display: none !important; }
 }
