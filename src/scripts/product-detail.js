@@ -23,7 +23,7 @@
     });
   }
 
-  var ASSET_BASE = "public/images/blueprint/";
+  var ASSET_BASE = "src/assets/images/blueprint/";
   var PRODUCT_IMAGES = {
     glp1: ASSET_BASE + "products/product-vial-glp1-generic.webp",
     recovery: ASSET_BASE + "products/product-vial-recovery-generic.webp",

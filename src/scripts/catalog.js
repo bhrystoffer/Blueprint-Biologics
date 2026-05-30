@@ -17,7 +17,7 @@
   var data = window.BB_CATALOG;
   var products = data.products.slice();
   var categories = data.categories.slice();
-  var ASSET_BASE = "public/images/blueprint/";
+  var ASSET_BASE = "src/assets/images/blueprint/";
   var CATEGORY_IMAGES = {
     glp1: ASSET_BASE + "catalog/catalog-glp1-incretin-research.webp",
     recovery: ASSET_BASE + "catalog/catalog-recovery-repair-research.webp",
