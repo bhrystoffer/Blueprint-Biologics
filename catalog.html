@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Research Catalog | Blueprint Biologics</title>
-  <meta name="description" content="Browse the Blueprint Biologics research-use catalog. Search and filter by category. Pricing and documentation are available to qualified wholesale buyers." />
+  <title>Research Catalog and Wholesale Pricing | Blueprint Biologics</title>
+  <meta name="description" content="Browse the Blueprint Biologics research-use catalog with 1 vial and 10 vial box wholesale pricing. Search by product, strength, or category. Custom labels available for qualified accounts. For laboratory research use only." />
   <meta name="theme-color" content="#0A1A2F" />
 
   <!-- Production domain placeholder. Replace with the verified domain before launch. -->
@@ -105,22 +105,22 @@
         </nav>
         <span class="catalog-hero__eyebrow">Research Catalog</span>
         <h1 class="catalog-hero__title" id="catalog-hero-title">
-          Research Catalog for <span class="accent">Qualified Wholesale Buyers</span>
+          Research Catalog with <span class="accent">Wholesale Pricing</span>
         </h1>
         <p class="catalog-hero__lede">
-          Explore Blueprint Biologics research-use catalog categories and submit a wholesale inquiry for product availability, documentation, and account-based pricing.
+          Browse the Blueprint Biologics research-use catalog with per-vial and 10-vial box pricing. Search by product, strength, or category. Custom label options may be available for qualified accounts.
         </p>
 
         <div class="catalog-hero__ctas">
-          <a class="u-btn u-btn--primary" href="index.html#contact">
-            Request Pricing
+          <a class="u-btn u-btn--primary" href="index.html?inquiry=pricing#contact">
+            Request Wholesale Pricing
             <svg viewBox="0 0 24 24" fill="none" width="16" height="16" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a class="u-btn hero__cta-secondary" href="index.html#contact">Contact Blueprint</a>
+          <a class="u-btn hero__cta-secondary" href="#browse">Browse Catalog</a>
         </div>
 
         <p class="catalog-hero__disclaimer">
-          Products referenced are intended for laboratory research use only and are not for human or animal consumption.
+          Prices are listed in USD and reflect blank vial pricing. Custom labels add $0.25 per vial where available. Pricing and availability may change. For laboratory research use only. Not for human or animal consumption.
         </p>
       </div>
     </section>
@@ -149,9 +149,9 @@
       <div class="u-container">
         <div class="section-head">
           <span class="section-head__eyebrow">Browse Catalog</span>
-          <h2 class="section-head__title" id="browser-title">Search and Filter</h2>
+          <h2 class="section-head__title" id="browser-title">Search, Filter, and Sort</h2>
           <p class="section-head__lede">
-            Search by product name, SKU, or category. Pricing is shared with approved wholesale accounts.
+            Search by product name, strength, or category. Filter by research category or jump to a letter. Sort by name or price. Default order is alphabetical, A-Z.
           </p>
         </div>
 
@@ -166,13 +166,18 @@
               id="catalog-search-input"
               type="search"
               class="catalog-search__input"
-              placeholder="Search products, SKUs, or categories"
+              placeholder="Search by product, strength, or category"
               autocomplete="off"
               data-catalog-search
             />
             <button class="catalog-search__clear" type="button" data-catalog-search-clear aria-label="Clear search" hidden>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
+          </div>
+
+          <div class="catalog-sort">
+            <label class="u-visually-hidden" for="catalog-sort-select">Sort products</label>
+            <select id="catalog-sort-select" class="u-select" data-catalog-sort></select>
           </div>
 
           <div class="catalog-view-toggle" role="group" aria-label="View mode">
@@ -187,21 +192,26 @@
           </div>
         </div>
 
-        <!-- Filter pills (desktop and mobile horizontal scroll) -->
+        <!-- Category filter pills -->
         <div class="catalog-filters" role="region" aria-label="Category filters">
           <div class="catalog-filters__scroll" data-catalog-filters></div>
         </div>
 
-        <!-- Mobile alternative filter, dropdown -->
+        <!-- Mobile alternative category filter -->
         <div class="catalog-filter-select">
           <label class="u-visually-hidden" for="catalog-filter-mobile">Filter by category</label>
           <select id="catalog-filter-mobile" class="u-select" data-catalog-filter-select></select>
         </div>
 
+        <!-- A-Z letter filter -->
+        <div class="catalog-letters" role="region" aria-label="Filter by letter">
+          <div class="catalog-letters__scroll" data-catalog-letters></div>
+        </div>
+
         <!-- Results meta -->
         <div class="catalog-meta">
           <p class="catalog-meta__count" aria-live="polite" data-catalog-count>Showing all products</p>
-          <p class="catalog-meta__hint u-mono">Updated reference catalog, pricing on request</p>
+          <p class="catalog-meta__hint u-mono">Prices in USD. Custom labels +$0.25 / vial where available.</p>
         </div>
 
         <!-- Cards view -->
@@ -224,10 +234,10 @@
               <thead>
                 <tr>
                   <th scope="col">Product</th>
+                  <th scope="col">Strength / Size</th>
                   <th scope="col">Category</th>
-                  <th scope="col">Format</th>
-                  <th scope="col">SKU</th>
-                  <th scope="col">Availability</th>
+                  <th scope="col" class="catalog-table__price">1 Vial</th>
+                  <th scope="col" class="catalog-table__price">10 Vial Box</th>
                   <th scope="col" class="catalog-table__action-col"><span class="u-visually-hidden">Action</span></th>
                 </tr>
               </thead>
@@ -249,8 +259,8 @@
           </div>
           <div class="quality-snapshot-card__body">
             <span class="section-head__eyebrow">Quality and Documentation</span>
-            <h2 class="quality-snapshot-card__title" id="quality-snapshot-title">A documentation-first wholesale process</h2>
-            <p class="quality-snapshot-card__lede">Review Blueprint's documentation-conscious process for qualified wholesale inquiries.</p>
+            <h2 class="quality-snapshot-card__title" id="quality-snapshot-title">Documentation-Ready Wholesale Supply</h2>
+            <p class="quality-snapshot-card__lede">Reference documentation is available to qualified buyers upon request. Review Blueprint's verification process for wholesale accounts.</p>
           </div>
           <div class="quality-snapshot-card__cta">
             <a class="u-btn u-btn--primary" href="quality.html">
@@ -284,15 +294,15 @@
           </div>
         </div>
 
-        <!-- Documentation visual placeholder -->
-        <div class="placeholder-visual placeholder-visual--doc" role="img" aria-label="Image placeholder, documentation visual">
-          <span class="placeholder-visual__tag">Phase 4 Asset</span>
+        <!-- Documentation visual -->
+        <div class="placeholder-visual placeholder-visual--doc" role="img" aria-label="Documentation visual">
+          <span class="placeholder-visual__tag">Documentation</span>
           <div class="placeholder-visual__core">
             <span class="placeholder-visual__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h6M10 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </span>
-            <span class="placeholder-visual__label">Image placeholder, documentation visual</span>
-            <p class="placeholder-visual__hint">Final imagery will be supplied during Phase 4 of the build.</p>
+            <span class="placeholder-visual__label">Reference Documentation Available on Request</span>
+            <p class="placeholder-visual__hint">Documentation availability may vary by product, lot, and buyer qualification status.</p>
           </div>
         </div>
       </div>
@@ -344,8 +354,8 @@
         </div>
         <div class="aeo-faq__grid">
           <details class="aeo-faq__item">
-            <summary><span>Is pricing public?</span></summary>
-            <div><p>No. Pricing is shared with approved wholesale accounts after account review. Use the <a href="index.html?inquiry=pricing#contact">Request Pricing</a> route to start an inquiry.</p></div>
+            <summary><span>How is catalog pricing shown?</span></summary>
+            <div><p>Each product lists 1 vial and 10 vial box pricing in USD for blank vials. Custom label add-on pricing applies per vial where available. Pricing and availability may change.</p></div>
           </details>
           <details class="aeo-faq__item">
             <summary><span>How do I request product availability?</span></summary>

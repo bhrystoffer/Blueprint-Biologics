@@ -1,6 +1,7 @@
 /* Blueprint Biologics, Product Detail page logic
    Reads ?id=<product-id> from the URL and populates the detail page from
    window.BB_CATALOG. Renders a not-found state if id is missing or unknown.
+   Also lists other available strengths for the same product family.
 */
 
 (function () {
@@ -12,8 +13,18 @@
   }
 
   function $(sel) { return document.querySelector(sel); }
+  function setText(sel, text) {
+    var el = document.querySelector(sel);
+    if (el) el.textContent = text;
+  }
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
 
   function init() {
+    var catalog = window.BB_CATALOG;
     var params = new URLSearchParams(window.location.search);
     var id = params.get("id");
     var notFound = document.querySelector("[data-detail-notfound]");
@@ -21,41 +32,57 @@
     var detailHero = document.querySelector(".detail-hero");
 
     if (!id) { showNotFound(); return; }
-    var p = window.BB_CATALOG.findProduct(id);
+    var p = catalog.findProduct(id);
     if (!p) { showNotFound(); return; }
 
-    var catLabel = window.BB_CATALOG.categoryLabel(p.category);
+    var catLabel = catalog.categoryLabel(p.category);
 
-    // Title-tab update
-    document.title = p.name + ", Blueprint Biologics";
+    document.title = p.name + " " + p.strength + " | Blueprint Biologics";
 
-    set("[data-detail-name]", p.name);
-    set("[data-detail-category]", catLabel);
-    set("[data-detail-note]", p.note);
-    set("[data-detail-sku]", p.sku);
-    set("[data-detail-format]", p.format);
-    set("[data-detail-availability]", p.availability);
-    set("[data-detail-crumb]", p.name);
-    set("[data-detail-cat-tag]", window.BB_CATALOG.categoryShort(p.category));
+    setText("[data-detail-name]", p.name);
+    setText("[data-detail-category]", catLabel);
+    setText("[data-detail-strength]", p.strength);
+    setText("[data-detail-format]", p.format);
+    setText("[data-detail-availability]", catalog.availabilityNote);
+    setText("[data-detail-custom-label]", catalog.customLabelNote);
+    setText("[data-detail-price-one]", catalog.formatPrice(p.priceOneVial));
+    setText("[data-detail-price-ten]", catalog.formatPrice(p.priceTenVialBox));
+    setText("[data-detail-crumb]", p.name + " " + p.strength);
+    setText("[data-detail-cat-tag]", catalog.categoryShort(p.category));
 
     var inquireLink = $("[data-detail-inquire]");
     if (inquireLink) {
+      var label = p.name + " " + p.strength;
       inquireLink.setAttribute(
         "href",
-        "index.html?product=" + encodeURIComponent(p.name) + "#contact"
+        "index.html?inquiry=pricing&product=" + encodeURIComponent(label) + "#contact"
       );
+    }
+
+    // Related strengths
+    var related = catalog.findRelatedStrengths(p);
+    var relSection = $("[data-detail-related]");
+    var relList    = $("[data-detail-related-list]");
+    if (related.length && relSection && relList) {
+      // Sort related by numeric strength
+      related.sort(function (a, b) {
+        return catalog.strengthValue(a.strength) - catalog.strengthValue(b.strength);
+      });
+      relList.innerHTML = related.map(function (r) {
+        return '<li><a href="product-detail.html?id=' + encodeURIComponent(r.id) + '">' +
+          escapeHtml(r.strength) +
+          ' <span class="detail-related__price">' +
+          escapeHtml(catalog.formatPrice(r.priceOneVial)) +
+          ' / 1 vial</span></a></li>';
+      }).join("");
+      relSection.hidden = false;
     }
 
     function showNotFound() {
       if (detailMain) detailMain.hidden = true;
       if (detailHero) detailHero.hidden = true;
       if (notFound) notFound.hidden = false;
-      document.title = "Product not found, Blueprint Biologics";
-    }
-
-    function set(sel, text) {
-      var el = document.querySelector(sel);
-      if (el) el.textContent = text;
+      document.title = "Product not found | Blueprint Biologics";
     }
   }
 

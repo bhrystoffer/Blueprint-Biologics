@@ -115,8 +115,8 @@
               <span class="placeholder-visual__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M9 3h6v2l-1 2v6l4 8H6l4-8V7L9 5V3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 13h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               </span>
-              <span class="placeholder-visual__label">Image placeholder, product vial</span>
-              <p class="placeholder-visual__hint">Final product imagery will be supplied during a later phase.</p>
+              <span class="placeholder-visual__label">Reference Product Vial</span>
+              <p class="placeholder-visual__hint">Documentation availability may vary by product, lot, and buyer qualification status.</p>
             </div>
           </div>
 
@@ -143,13 +143,20 @@
         <div class="detail-info">
           <span class="detail-info__category u-mono" data-detail-category>Category</span>
           <h1 class="detail-info__title" data-detail-name>Product</h1>
-          <p class="detail-info__note" data-detail-note>Reference compound for research use.</p>
+          <p class="detail-info__strength"><span class="detail-info__strength-label">Strength / Size:</span> <span data-detail-strength>—</span></p>
+
+          <dl class="detail-prices" aria-label="Wholesale pricing">
+            <div>
+              <dt>1 Vial</dt>
+              <dd data-detail-price-one>—</dd>
+            </div>
+            <div>
+              <dt>10 Vial Box</dt>
+              <dd data-detail-price-ten>—</dd>
+            </div>
+          </dl>
 
           <dl class="detail-specs">
-            <div>
-              <dt>SKU</dt>
-              <dd class="u-mono" data-detail-sku>...</dd>
-            </div>
             <div>
               <dt>Format</dt>
               <dd data-detail-format>Lyophilized vial</dd>
@@ -159,8 +166,8 @@
               <dd data-detail-availability>Request current availability</dd>
             </div>
             <div>
-              <dt>Pricing</dt>
-              <dd>Available to qualified buyers</dd>
+              <dt>Custom Label</dt>
+              <dd data-detail-custom-label>Custom labels add $0.25 per vial where available.</dd>
             </div>
           </dl>
 
@@ -171,6 +178,12 @@
             </a>
             <a class="u-btn u-btn--secondary" href="catalog.html">Back to Catalog</a>
           </div>
+
+          <!-- Other available strengths, populated by product-detail.js -->
+          <section class="detail-related" data-detail-related hidden aria-labelledby="related-title">
+            <h2 class="detail-related__title" id="related-title">Other Available Strengths</h2>
+            <ul class="detail-related__list" data-detail-related-list></ul>
+          </section>
 
           <div class="detail-disclaimer">
             <p>
