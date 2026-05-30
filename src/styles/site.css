@@ -4629,3 +4629,71 @@ html.site-lock-active body {
   .compliance-strip__desktop { display: inline-flex !important; }
   .compliance-strip__dot { display: none !important; }
 }
+
+/* ==========================================================================
+   IMAGE-CARD CLEANUP, must remain at the very bottom of file.
+   When a real image is present in an image card or placeholder visual, hide
+   every decorative overlay (grid, glow, glyph, icon, label, tag) so the
+   image renders cleanly inside the rounded card. Image fills the container
+   via object-fit: cover and is clipped by overflow: hidden + inherited
+   border-radius. Placeholder markup and classes remain intact; only the
+   visible overlays are suppressed when an actual <img> is present.
+   ========================================================================== */
+
+/* ---- Catalog category cards (homepage Catalog Preview) ---- */
+.catalog-card__visual:has(.catalog-card__visual-img:not([hidden]))::before,
+.catalog-card__visual:has(.catalog-card__visual-img:not([hidden]))::after,
+.catalog-card__visual:has(.catalog-card__visual-img:not([hidden])) .catalog-card__glyph,
+.catalog-card__visual:has(.catalog-card__visual-img:not([hidden])) .catalog-card__placeholder-label {
+  display: none !important;
+}
+
+/* ---- Featured catalog cards (catalog.html featured categories) ---- */
+.featured-cat__visual:has(.featured-cat__visual-img:not([hidden]))::before,
+.featured-cat__visual:has(.featured-cat__visual-img:not([hidden]))::after,
+.featured-cat__visual:has(.featured-cat__visual-img:not([hidden])) .featured-cat__glyph,
+.featured-cat__visual:has(.featured-cat__visual-img:not([hidden])) .featured-cat__label-mono {
+  display: none !important;
+}
+
+/* ---- Product card visual (catalog page cards, if image present) ---- */
+.product-card__visual:has(.product-card__visual-img:not([hidden]))::before,
+.product-card__visual:has(.product-card__visual-img:not([hidden]))::after,
+.product-card__visual:has(.product-card__visual-img:not([hidden])) .product-card__molecule,
+.product-card__visual:has(.product-card__visual-img:not([hidden])) .product-card__placeholder-label,
+.product-card__visual:has(.product-card__visual-img:not([hidden])) .product-card__sku-badge {
+  display: none !important;
+}
+
+/* ---- Placeholder visuals (product detail, quality, wholesale, etc.) ---- */
+.placeholder-visual:has(.placeholder-visual__img:not([hidden]))::before,
+.placeholder-visual:has(.placeholder-visual__img:not([hidden])) .placeholder-visual__core,
+.placeholder-visual:has(.placeholder-visual__img:not([hidden])) .placeholder-visual__tag {
+  display: none !important;
+}
+
+/* ---- Universal image fill + clean clipping for every image card ---- */
+.catalog-card__visual-img,
+.featured-cat__visual-img,
+.product-card__visual-img,
+.placeholder-visual__img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: inherit;
+  filter: none !important;       /* drop the saturation/contrast tweak so images look natural */
+  z-index: 1 !important;
+}
+
+/* ---- Make sure image containers clip cleanly ---- */
+.catalog-card__visual,
+.featured-cat__visual,
+.product-card__visual,
+.placeholder-visual {
+  position: relative;
+  overflow: hidden;
+}
