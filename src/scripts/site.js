@@ -240,7 +240,7 @@
     handleFetchSubmit(form, {
       noteSelector: "[data-form-note]",
       invalidMessage:
-        "Please complete the required fields and the research-use acknowledgment before submitting."
+        "Please complete the required fields and the account acknowledgment before submitting."
     });
   }
 

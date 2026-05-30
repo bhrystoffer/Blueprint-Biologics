@@ -53,8 +53,9 @@ BB_CATALOG object alongside the products array, so renderers can pull
 them in once rather than repeating them per row:
     customLabelNote    "Custom labels add $0.25 per vial where available."
     availabilityNote   "Request current availability"
-    disclaimerNote     "For laboratory research use only. Not for human
-                        or animal consumption."
+    disclaimerNote     "Available to qualified wholesale, clinical, and
+                        professional accounts, subject to account review
+                        and applicable laws."
 
 COMPLIANCE GUARDRAILS
 ---------------------
@@ -325,10 +326,10 @@ def emit_js(entries) -> str:
         '   Generated from the official Blueprint Biologics price sheet.',
         '   Vanilla JS, exposed as window.BB_CATALOG.',
         '',
-        '   All entries are research compounds for laboratory research use only.',
-        '   Not for human or animal consumption. Not intended to diagnose, treat,',
-        '   cure, or prevent any disease. Prices are in USD and reflect blank vial',
-        '   pricing. Custom labels add $0.25 per vial where available.',
+        '   All entries are catalog items available to qualified wholesale, clinical,',
+        '   and professional accounts, subject to account review and applicable laws.',
+        '   Prices are in USD and reflect blank vial pricing. Custom labels add $0.25',
+        '   per vial where available. Pricing and availability may change.',
         '   ========================================================================== */',
         '',
         '(function (global) {',
@@ -347,7 +348,7 @@ def emit_js(entries) -> str:
         '',
         '  var CUSTOM_LABEL_NOTE = "Custom labels add $0.25 per vial where available.";',
         '  var AVAILABILITY_NOTE = "Request current availability";',
-        '  var DISCLAIMER_NOTE   = "For laboratory research use only. Not for human or animal consumption.";',
+        '  var DISCLAIMER_NOTE   = "Available to qualified wholesale, clinical, and professional accounts, subject to account review and applicable laws.";',
         '',
         '  var PRODUCTS = [',
     ]

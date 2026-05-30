@@ -3,10 +3,10 @@
    Generated from the official Blueprint Biologics price sheet.
    Vanilla JS, exposed as window.BB_CATALOG.
 
-   All entries are research compounds for laboratory research use only.
-   Not for human or animal consumption. Not intended to diagnose, treat,
-   cure, or prevent any disease. Prices are in USD and reflect blank vial
-   pricing. Custom labels add $0.25 per vial where available.
+   All entries are catalog items available to qualified wholesale, clinical,
+   and professional accounts, subject to account review and applicable laws.
+   Prices are in USD and reflect blank vial pricing. Custom labels add $0.25
+   per vial where available. Pricing and availability may change.
    ========================================================================== */
 
 (function (global) {
@@ -25,7 +25,7 @@
 
   var CUSTOM_LABEL_NOTE = "Custom labels add $0.25 per vial where available.";
   var AVAILABILITY_NOTE = "Request current availability";
-  var DISCLAIMER_NOTE   = "For laboratory research use only. Not for human or animal consumption.";
+  var DISCLAIMER_NOTE   = "Available to qualified wholesale, clinical, and professional accounts, subject to account review and applicable laws.";
 
   var PRODUCTS = [
     { id: "ace-031-1mg-vial", name: "ACE-031", nameNormalized: "ace-031", strength: "1mg/vial", format: "Lyophilized vial", letter: "A", category: "specialty", priceOneVial: 20, priceTenVialBox: 200 },

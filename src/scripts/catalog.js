@@ -271,7 +271,7 @@
           '</a>' +
           '<a class="product-card__detail" href="' + detailHref + '">Details</a>' +
         '</div>' +
-        '<p class="product-card__disclaimer u-mono">Research Use Only / Not for human or animal consumption</p>' +
+        '<p class="product-card__disclaimer u-mono">Qualified Accounts Only / Buyer responsible for compliance</p>' +
       '</article>';
     });
     $grid.innerHTML = html;

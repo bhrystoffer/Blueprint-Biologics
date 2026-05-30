@@ -2,6 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/research-use.html",
+      "destination": "/buyer-responsibility.html",
+      "permanent": true
+    }
+  ],
   "functions": {
     "api/contact.js": {
       "maxDuration": 10
