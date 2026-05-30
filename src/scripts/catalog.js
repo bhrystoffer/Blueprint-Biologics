@@ -242,7 +242,7 @@
     // Deep-link with product + strength so the homepage form can prefill
     // the full label, e.g. "AOD9604 2mg/vial"
     var label = p.name + " " + p.strength;
-    return "index.html?inquiry=pricing&product=" + encodeURIComponent(label) + "#contact";
+    return "contact.html?inquiry=pricing&product=" + encodeURIComponent(label) + "#contact-form";
   }
 
   function renderCards(list) {

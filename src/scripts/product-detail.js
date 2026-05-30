@@ -71,7 +71,7 @@
       var label = p.name + " " + p.strength;
       inquireLink.setAttribute(
         "href",
-        "index.html?inquiry=pricing&product=" + encodeURIComponent(label) + "#contact"
+        "contact.html?inquiry=pricing&product=" + encodeURIComponent(label) + "#contact-form"
       );
     }
 
@@ -126,7 +126,7 @@
       if (inquireLink) {
         inquireLink.setAttribute(
           "href",
-          "index.html?inquiry=pricing&product=" + encodeURIComponent(name) + "#contact"
+          "contact.html?inquiry=pricing&product=" + encodeURIComponent(name) + "#contact-form"
         );
       }
 
