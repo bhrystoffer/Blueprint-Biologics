@@ -9,6 +9,44 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/catalog",
+      "destination": "/catalog.html"
+    },
+    {
+      "source": "/quality",
+      "destination": "/quality.html"
+    },
+    {
+      "source": "/wholesale",
+      "destination": "/wholesale.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/buyer-responsibility",
+      "destination": "/buyer-responsibility.html"
+    }
+  ],
   "functions": {
     "api/contact.js": {
       "maxDuration": 10
