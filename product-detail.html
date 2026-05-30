@@ -36,6 +36,8 @@
 
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/utilities.css" />
+  <script>document.documentElement.classList.add("site-lock-pending");</script>
+  <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
   <link rel="stylesheet" href="src/styles/site.css?v=clinical-wholesale-language-v1" />
 </head>
 <body class="page-detail">
@@ -97,7 +99,8 @@
       <div class="u-container detail-grid">
         <!-- Visual column -->
         <div class="detail-visual">
-          <div class="placeholder-visual placeholder-visual--product" role="img" aria-label="Image placeholder, product vial visual">
+          <div class="placeholder-visual placeholder-visual--product has-image" role="img" aria-label="Generic research vial on a clean laboratory surface.">
+            <img class="placeholder-visual__img" data-detail-image src="public/images/blueprint/products/product-research-vial-generic-01.webp" width="1200" height="1200" loading="lazy" decoding="async" alt="Generic research vial on a clean laboratory surface." onerror="this.hidden=true;this.closest('.placeholder-visual').classList.add('is-fallback');" />
             <span class="placeholder-visual__tag" data-detail-cat-tag>Reference Product</span>
             <div class="placeholder-visual__core">
               <span class="placeholder-visual__icon" aria-hidden="true">
@@ -258,6 +261,7 @@
   </footer>
 
   <script src="src/data/products.js?v=clinical-wholesale-language-v1" defer></script>
+  <script src="src/scripts/site-lock.js?v=client-preview-lock-v1" defer></script>
   <script src="src/scripts/site.js?v=clinical-wholesale-language-v1" defer></script>
   <script src="src/scripts/product-detail.js?v=clinical-wholesale-language-v1" defer></script>
 </body>

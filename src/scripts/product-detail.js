@@ -23,6 +23,28 @@
     });
   }
 
+  var ASSET_BASE = "public/images/blueprint/";
+  var PRODUCT_IMAGES = {
+    glp1: ASSET_BASE + "products/product-vial-glp1-generic.webp",
+    recovery: ASSET_BASE + "products/product-vial-recovery-generic.webp",
+    longevity: ASSET_BASE + "products/product-vial-longevity-generic.webp",
+    growth: ASSET_BASE + "products/product-vial-growth-generic.webp",
+    cognitive: ASSET_BASE + "products/product-vial-cognitive-generic.webp",
+    specialty: ASSET_BASE + "products/product-research-vial-generic-01.webp",
+    solutions: ASSET_BASE + "products/product-solution-vial-generic.webp"
+  };
+  var DEFAULT_PRODUCT_IMAGE = ASSET_BASE + "products/product-research-vial-generic-01.webp";
+
+  function setDetailImage(category) {
+    var img = document.querySelector("[data-detail-image]");
+    if (!img) return;
+    img.hidden = false;
+    img.src = PRODUCT_IMAGES[category] || DEFAULT_PRODUCT_IMAGE;
+    img.alt = "Generic research vial on a clean laboratory surface.";
+    var frame = img.closest(".placeholder-visual");
+    if (frame) frame.classList.remove("is-fallback");
+  }
+
   function init() {
     var catalog = window.BB_CATALOG;
     var params = new URLSearchParams(window.location.search);
@@ -65,6 +87,7 @@
     setText("[data-detail-price-ten]", catalog.formatPrice(p.priceTenVialBox));
     setText("[data-detail-crumb]", p.name + " " + p.strength);
     setText("[data-detail-cat-tag]", catalog.categoryShort(p.category));
+    setDetailImage(p.category);
 
     var inquireLink = $("[data-detail-inquire]");
     if (inquireLink) {
@@ -121,6 +144,7 @@
       setText("[data-detail-price-ten]", "Select a strength");
       setText("[data-detail-crumb]", name);
       setText("[data-detail-cat-tag]", catalog.categoryShort(first.category));
+      setDetailImage(first.category);
 
       var inquireLink = $("[data-detail-inquire]");
       if (inquireLink) {

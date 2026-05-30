@@ -17,6 +17,26 @@
   var data = window.BB_CATALOG;
   var products = data.products.slice();
   var categories = data.categories.slice();
+  var ASSET_BASE = "public/images/blueprint/";
+  var CATEGORY_IMAGES = {
+    glp1: ASSET_BASE + "catalog/catalog-glp1-incretin-research.webp",
+    recovery: ASSET_BASE + "catalog/catalog-recovery-repair-research.webp",
+    longevity: ASSET_BASE + "catalog/catalog-longevity-nad-research.webp",
+    growth: ASSET_BASE + "catalog/catalog-growth-hormone-research.webp",
+    cognitive: ASSET_BASE + "catalog/catalog-cognitive-research.webp",
+    specialty: ASSET_BASE + "catalog/catalog-specialty-compounds.webp",
+    solutions: ASSET_BASE + "catalog/catalog-solutions-accessories.webp"
+  };
+  var PRODUCT_IMAGES = {
+    glp1: ASSET_BASE + "products/product-vial-glp1-generic.webp",
+    recovery: ASSET_BASE + "products/product-vial-recovery-generic.webp",
+    longevity: ASSET_BASE + "products/product-vial-longevity-generic.webp",
+    growth: ASSET_BASE + "products/product-vial-growth-generic.webp",
+    cognitive: ASSET_BASE + "products/product-vial-cognitive-generic.webp",
+    specialty: ASSET_BASE + "products/product-research-vial-generic-01.webp",
+    solutions: ASSET_BASE + "products/product-solution-vial-generic.webp"
+  };
+  var DEFAULT_PRODUCT_IMAGE = ASSET_BASE + "products/product-research-vial-generic-01.webp";
 
   // Pull unique sorted letters from products
   var LETTERS = (function () {
@@ -155,6 +175,7 @@
       if (!count) return;
       html += '<button class="featured-cat" type="button" data-jump-category="' + c.id + '" aria-label="Jump to ' + escapeHtml(c.label) + ' category">' +
         '<span class="featured-cat__visual" aria-hidden="true">' +
+          '<img class="featured-cat__visual-img" src="' + escapeHtml(CATEGORY_IMAGES[c.id] || CATEGORY_IMAGES.specialty) + '" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;">' +
           '<span class="featured-cat__glyph">' + categoryIconSvg(c.id) + '</span>' +
           '<span class="featured-cat__label-mono u-mono">' + escapeHtml(c.short) + '</span>' +
         '</span>' +
@@ -252,7 +273,12 @@
     list.forEach(function (p) {
       var detailHref = "product-detail.html?id=" + encodeURIComponent(p.id);
       var inquireHref = productInquireHref(p);
+      var productImage = PRODUCT_IMAGES[p.category] || DEFAULT_PRODUCT_IMAGE;
       html += '<article class="product-card">' +
+        '<a class="product-card__visual" href="' + detailHref + '" aria-label="View product details">' +
+          '<img class="product-card__visual-img" src="' + escapeHtml(productImage) + '" width="400" height="300" loading="lazy" decoding="async" alt="Generic research vial on a clean laboratory surface." onerror="this.hidden=true;">' +
+          '<span class="product-card__molecule" aria-hidden="true">' + categoryIconSvg(p.category) + '</span>' +
+        '</a>' +
         '<div class="product-card__top">' +
           '<span class="product-card__category u-mono">' + escapeHtml(data.categoryShort(p.category)) + '</span>' +
           '<span class="product-card__letter u-mono" aria-hidden="true">' + escapeHtml(p.letter) + '</span>' +

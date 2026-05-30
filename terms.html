@@ -35,6 +35,8 @@
 
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/utilities.css" />
+  <script>document.documentElement.classList.add("site-lock-pending");</script>
+  <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
   <link rel="stylesheet" href="src/styles/site.css?v=clinical-wholesale-language-v1" />
 </head>
 <body class="page-legal">
@@ -268,6 +270,7 @@
     ]
   }
   </script>
+  <script src="src/scripts/site-lock.js?v=client-preview-lock-v1" defer></script>
 
 
   <script src="src/scripts/site.js?v=clinical-wholesale-language-v1" defer></script>

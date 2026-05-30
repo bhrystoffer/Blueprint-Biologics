@@ -35,6 +35,8 @@
 
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/utilities.css" />
+  <script>document.documentElement.classList.add("site-lock-pending");</script>
+  <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
   <link rel="stylesheet" href="src/styles/site.css?v=clinical-wholesale-language-v1" />
 </head>
 <body class="page-quality">
@@ -282,7 +284,8 @@
         </div>
 
         <!-- Documentation visual placeholder -->
-        <div class="placeholder-visual placeholder-visual--doc" role="img" aria-label="Image placeholder, quality documentation visual">
+        <div class="placeholder-visual placeholder-visual--doc has-image" role="img" aria-label="Laboratory documentation and generic research materials.">
+          <img class="placeholder-visual__img" src="public/images/blueprint/quality/quality-documentation-coa.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Laboratory documentation and generic research materials." onerror="this.hidden=true;this.closest('.placeholder-visual').classList.add('is-fallback');" />
           <span class="placeholder-visual__tag">Asset Pending</span>
           <div class="placeholder-visual__core">
             <span class="placeholder-visual__icon" aria-hidden="true">
@@ -300,7 +303,8 @@
          ==================================================================== -->
     <section class="u-section storage-handling" aria-labelledby="storage-title">
       <div class="u-container storage-handling__inner">
-        <div class="placeholder-visual placeholder-visual--storage" role="img" aria-label="Image placeholder, storage and handling visual">
+        <div class="placeholder-visual placeholder-visual--storage has-image" role="img" aria-label="Generic research vials arranged for storage and handling.">
+          <img class="placeholder-visual__img" src="public/images/blueprint/quality/quality-storage-handling.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Generic research vials arranged for storage and handling." onerror="this.hidden=true;this.closest('.placeholder-visual').classList.add('is-fallback');" />
           <span class="placeholder-visual__tag">Asset Pending</span>
           <div class="placeholder-visual__core">
             <span class="placeholder-visual__icon" aria-hidden="true">
@@ -673,6 +677,7 @@
     ]
   }
   </script>
+  <script src="src/scripts/site-lock.js?v=client-preview-lock-v1" defer></script>
 
 
   <script src="src/scripts/site.js?v=clinical-wholesale-language-v1" defer></script>

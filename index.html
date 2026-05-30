@@ -42,6 +42,8 @@
   <!-- Styles -->
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/utilities.css" />
+  <script>document.documentElement.classList.add("site-lock-pending");</script>
+  <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
   <link rel="stylesheet" href="src/styles/site.css?v=clinical-wholesale-language-v1" />
 </head>
 <body>
@@ -272,6 +274,7 @@
           <!-- 1 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-glp1-incretin-research.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M7 3l5 6 5-6M7 21l5-6 5 6M7 3v18M17 3v18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
@@ -290,6 +293,7 @@
           <!-- 2 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-recovery-repair-research.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.6"/></svg>
               </span>
@@ -308,6 +312,7 @@
           <!-- 3 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-longevity-nad-research.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M4 14a8 8 0 0116 0M4 14h16M9 14v6M15 14v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               </span>
@@ -326,6 +331,7 @@
           <!-- 4 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-growth-hormone-research.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M6 21V9M18 21V3M12 21V13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 21h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               </span>
@@ -344,6 +350,7 @@
           <!-- 5 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-cognitive-research.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a5 5 0 015 5v3a5 5 0 11-10 0V8a5 5 0 015-5z" stroke="currentColor" stroke-width="1.6"/><path d="M9 21h6M12 16v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               </span>
@@ -362,6 +369,7 @@
           <!-- 6 -->
           <article class="catalog-card u-reveal">
             <div class="catalog-card__visual" aria-hidden="true">
+              <img class="catalog-card__visual-img" src="public/images/blueprint/catalog/catalog-specialty-compounds.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="" onerror="this.hidden=true;" />
               <span class="catalog-card__glyph">
                 <svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="18" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 8l3 8M16 8l-3 8" stroke="currentColor" stroke-width="1.6"/></svg>
               </span>
@@ -462,7 +470,8 @@
 
         <div class="quality-grid">
           <!-- Placeholder visual -->
-          <div class="placeholder-visual u-reveal" role="img" aria-label="Documentation and verification visual">
+          <div class="placeholder-visual has-image u-reveal" role="img" aria-label="Laboratory documentation and generic research materials.">
+            <img class="placeholder-visual__img" src="public/images/blueprint/quality/quality-documentation-coa.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Laboratory documentation and generic research materials." onerror="this.hidden=true;this.closest('.placeholder-visual').classList.add('is-fallback');" />
             <span class="placeholder-visual__tag">Documentation</span>
             <div class="placeholder-visual__core">
               <span class="placeholder-visual__icon" aria-hidden="true">
@@ -789,6 +798,7 @@
     ]
   }
   </script>
+  <script src="src/scripts/site-lock.js?v=client-preview-lock-v1" defer></script>
 
   <script src="src/scripts/site.js?v=clinical-wholesale-language-v1" defer></script>
 </body>

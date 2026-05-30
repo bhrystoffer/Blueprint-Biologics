@@ -35,6 +35,8 @@
 
   <link rel="stylesheet" href="design-system/tokens.css" />
   <link rel="stylesheet" href="design-system/utilities.css" />
+  <script>document.documentElement.classList.add("site-lock-pending");</script>
+  <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
   <link rel="stylesheet" href="src/styles/site.css?v=clinical-wholesale-language-v1" />
 </head>
 <body class="page-wholesale">
@@ -409,7 +411,8 @@
               <a class="u-btn u-btn--secondary" href="contact.html?inquiry=docs#contact-form">Request Documentation</a>
             </div>
 
-            <div class="placeholder-visual placeholder-visual--storage" role="img" aria-label="Image placeholder, wholesale account visual">
+            <div class="placeholder-visual placeholder-visual--storage has-image" role="img" aria-label="Wholesale account review materials on a professional desk.">
+              <img class="placeholder-visual__img" src="public/images/blueprint/wholesale/wholesale-account-review.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="Wholesale account review materials on a professional desk." onerror="this.hidden=true;this.closest('.placeholder-visual').classList.add('is-fallback');" />
               <span class="placeholder-visual__tag">Asset Pending</span>
               <div class="placeholder-visual__core">
                 <span class="placeholder-visual__icon" aria-hidden="true">
@@ -731,6 +734,7 @@
     ]
   }
   </script>
+  <script src="src/scripts/site-lock.js?v=client-preview-lock-v1" defer></script>
 
 
   <script src="src/scripts/site.js?v=clinical-wholesale-language-v1" defer></script>
