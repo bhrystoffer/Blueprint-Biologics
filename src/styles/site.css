@@ -3963,6 +3963,100 @@ main {
 }
 
 /* ==========================================================================
+   Eligibility card alignment fix
+   The card uses a 2-column grid (44px icon | 1fr content). Without explicit
+   placement, the title and body land in the wrong cells — the body wraps
+   inside the 44px icon column. Force title/body into column 2 and let the
+   icon span both rows. min-width: 0 prevents grid items from blowing past.
+   ========================================================================== */
+.eligibility-card { min-width: 0; }
+.eligibility-card__icon { grid-row: 1 / span 2; }
+.eligibility-card__title,
+.eligibility-card__body {
+  grid-column: 2;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   Pricing preview, homepage "Product Catalog and Wholesale Pricing" section
+   ========================================================================== */
+.pricing-preview { background: var(--bg-soft); border-block: 1px solid var(--border); }
+
+.pricing-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-6);
+}
+@media (min-width: 640px) {
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  min-width: 0;
+  transition: border-color var(--dur-mid) var(--ease),
+              box-shadow var(--dur-mid) var(--ease),
+              transform var(--dur-mid) var(--ease);
+}
+.pricing-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.pricing-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pricing-card__icon svg { width: 20px; height: 20px; }
+
+.pricing-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+.pricing-card__body {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.pricing-preview__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.pricing-preview__note {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
    FINAL COMPLIANCE STRIP OVERRIDE, must remain at the very bottom of file.
    Desktop: render four discrete items inline. Mobile: render a single
    compact line. Blue dot is always hidden.
