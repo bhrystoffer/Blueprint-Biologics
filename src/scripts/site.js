@@ -302,8 +302,9 @@
       form.insertBefore(notice, form.firstChild);
 
       // Scroll to contact on next frame so layout is settled.
+      // contact.html uses #contact-form; index.html uses #contact.
       requestAnimationFrame(function () {
-        var contact = document.getElementById("contact");
+        var contact = document.getElementById("contact-form") || document.getElementById("contact");
         if (contact) contact.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
