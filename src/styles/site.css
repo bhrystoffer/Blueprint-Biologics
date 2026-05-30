@@ -3965,7 +3965,7 @@ main {
 /* ==========================================================================
    Eligibility card alignment fix
    The card uses a 2-column grid (44px icon | 1fr content). Without explicit
-   placement, the title and body land in the wrong cells — the body wraps
+   placement, the title and body land in the wrong cells, so the body wraps
    inside the 44px icon column. Force title/body into column 2 and let the
    icon span both rows. min-width: 0 prevents grid items from blowing past.
    ========================================================================== */
@@ -4272,6 +4272,89 @@ main {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
 }
+
+/* ==========================================================================
+   Sticky catalog controls
+   Desktop/tablet: search + sort + view toggle + category pills stick under
+   the header. Mobile (<=767px): only the controls row sticks (search +
+   sort + view toggle); category and letter rows scroll normally so they
+   don't eat screen height.
+   ========================================================================== */
+@media (min-width: 768px) {
+  .catalog-controls,
+  .catalog-filters {
+    position: sticky;
+    z-index: 5;
+    background: var(--bg-base);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    backdrop-filter: saturate(180%) blur(8px);
+  }
+  .catalog-controls {
+    top: 0;
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--border);
+  }
+  .catalog-filters {
+    top: 64px; /* sits just below the controls row */
+    padding-block: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 767px) {
+  .catalog-controls {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--bg-base);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    backdrop-filter: saturate(180%) blur(8px);
+    padding-block: var(--space-2);
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* ==========================================================================
+   Catalog card polish: consistent heights + cleaner spacing
+   ========================================================================== */
+.catalog-results__grid {
+  align-items: stretch;
+}
+.product-card {
+  height: 100%;
+}
+.product-card__title {
+  /* Long names (e.g. KLOW80 (BPC157 10mg+GHK-CU 50mg+TB500 10mg+KPV10mg))
+     should wrap by word, never per letter, and never blow out the card. */
+  word-break: normal;
+  overflow-wrap: anywhere;
+  hyphens: none;
+}
+.product-card__actions {
+  margin-top: auto;
+}
+.product-card__disclaimer {
+  margin-top: var(--space-2);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Catalog table polish
+   ========================================================================== */
+.catalog-table__product {
+  min-width: 180px;
+  font-weight: 600;
+}
+.catalog-table th.catalog-table__price,
+.catalog-table td.catalog-table__price {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  width: 1%;
+}
+.catalog-table__action-col { width: 1%; white-space: nowrap; }
 
 /* ==========================================================================
    FINAL COMPLIANCE STRIP OVERRIDE, must remain at the very bottom of file.
