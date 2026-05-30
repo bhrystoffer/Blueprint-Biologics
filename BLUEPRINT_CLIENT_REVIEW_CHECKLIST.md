@@ -6,11 +6,13 @@ A short walkthrough of what to look at before approving the site for launch.
 
 If you see anything stacked oddly or out of date, hard-refresh the page (or open in a private window) — Vercel caches aggressively and we use a version stamp on every asset to force-refresh.
 
-## 1. Pages to review (10 total)
+## 1. Pages to review (12 total)
 
 Open each in a fresh tab and skim for tone, accuracy, and obvious issues.
 
 - [ ] [Home](https://blueprint-biologics.vercel.app/index.html)
+- [ ] [About](https://blueprint-biologics.vercel.app/about.html) **(new)**
+- [ ] [Contact](https://blueprint-biologics.vercel.app/contact.html) **(new)**
 - [ ] [Catalog](https://blueprint-biologics.vercel.app/catalog.html)
 - [ ] [Sample product detail (Semaglutide 2mg)](https://blueprint-biologics.vercel.app/product-detail.html?id=semaglutide-2mg-vial)
 - [ ] [Sample product detail (Tirzepatide 10mg)](https://blueprint-biologics.vercel.app/product-detail.html?id=tirzepatide-10mg-vial)
@@ -105,9 +107,11 @@ Vercel environment variables that must be set before launch (in the Vercel proje
 
 Smoke test after env vars are set:
 
-- [ ] Submit the homepage contact form with a test address. Confirm Resend delivers an email to `CONTACT_TO_EMAIL`.
-- [ ] Submit the wholesale form with a test address. Confirm Resend delivers and the "submitted_from" field reads "wholesale-application".
-- [ ] Click a "Request Quote" button from a catalog card, confirm the homepage form opens with the product name and strength prefilled.
+- [ ] Submit the homepage contact form with a test address. Confirm Resend delivers an email to `CONTACT_TO_EMAIL` (`submitted_from = homepage-inquiry`).
+- [ ] Submit the **Contact page** form with a test address. Confirm Resend delivers (`submitted_from = contact-page-inquiry`).
+- [ ] Submit the wholesale form with a test address. Confirm Resend delivers (`submitted_from = wholesale-application`).
+- [ ] Click a **Request Quote** button from a catalog card. Confirm `contact.html` opens with the product name and strength prefilled, inquiry type "Wholesale Pricing" preselected, and a "Prefilled with…" banner shown above the form.
+- [ ] Open an old-style legacy URL like `index.html?inquiry=pricing&product=Tirzepatide%20100mg/vial#contact` and confirm the homepage form still prefills (backward compatibility).
 
 ## 8. Final domain confirmation
 

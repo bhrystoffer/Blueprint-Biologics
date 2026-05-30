@@ -5,6 +5,15 @@ Engineering / ops reference. Pair with:
 - `BLUEPRINT_IMAGE_ASSET_PLAN.md` (image asset plan, do-not-touch placeholder policy)
 - `BLUEPRINT_CLIENT_REVIEW_CHECKLIST.md` (client-facing review punch list)
 
+## Recent additions
+
+- **`about.html`** is live. Dedicated About page covering company positioning, what Blueprint provides, catalog & pricing, wholesale support, documentation, eligibility, and compliance.
+- **`contact.html`** is live. Dedicated Contact page with 6 inquiry routing cards, a full inquiry form (reuses the homepage form pattern, posts to `/api/contact`, `submitted_from = contact-page-inquiry`), a quick-links sidebar, and a FAQ.
+- **Sitewide nav** routes About → `about.html` and Contact → `contact.html` in every header and mobile menu. Footer Site column now includes Home, About, Catalog, Quality, Wholesale, Contact across all pages.
+- **Request Quote links** in catalog cards, the catalog table view, and product-detail pages now route to `contact.html?inquiry=pricing&product=<Name+strength>#contact-form`. Catalog and detail JS were updated together.
+- **Legacy back-compat** preserved: old homepage URLs like `index.html?inquiry=pricing&product=AOD9604%2010mg/vial#contact` still prefill the homepage form (`submitted_from = homepage-inquiry`). The homepage contact section was intentionally kept.
+- `sitemap.xml` now includes both `/about.html` (priority 0.8) and `/contact.html` (priority 0.7).
+
 ## Repository
 
 - **GitHub:** https://github.com/bhrystoffer/Blueprint-Biologics
