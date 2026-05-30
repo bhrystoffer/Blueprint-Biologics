@@ -214,7 +214,7 @@
     });
   }
   function formatPrice(n) {
-    if (typeof n !== "number" || isNaN(n)) return "—";
+    if (typeof n !== "number" || isNaN(n)) return "Request pricing";
     return "$" + n.toLocaleString("en-US");
   }
   // Numeric strength sort helper. Pulls the first numeric value out of the
