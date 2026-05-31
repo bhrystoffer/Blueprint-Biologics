@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="design-system/utilities.css" />
   <script>document.documentElement.classList.add("site-lock-pending");</script>
   <style>html.site-lock-pending body > *:not(.site-lock) { visibility: hidden; }</style>
-  <link rel="stylesheet" href="src/styles/site.css?v=image-card-cleanup-v1" />
+  <link rel="stylesheet" href="src/styles/site.css?v=catalog-client-feedback-v1" />
 </head>
 <body class="page-catalog">
   <a class="u-skip-link" href="#catalog-main">Skip to catalog</a>
@@ -115,22 +115,9 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         Featured Categories
-         ==================================================================== -->
-    <section class="u-section featured-cats" aria-labelledby="featured-cats-title">
-      <div class="u-container">
-        <div class="section-head">
-          <span class="section-head__eyebrow">Featured Categories</span>
-          <h2 class="section-head__title" id="featured-cats-title">Popular Research Categories</h2>
-          <p class="section-head__lede">
-            Jump to a category, or use the search and filters below to browse the full catalog. All listings are reference materials for qualified wholesale, clinical, and professional accounts, subject to applicable laws and account review.
-          </p>
-        </div>
-
-        <div class="featured-cats__grid" data-featured-categories></div>
-      </div>
-    </section>
+    <!-- Featured Categories section removed per client feedback. Catalog is
+         alphabetical by default; the optional category dropdown filter is
+         still available inside the browse controls below. -->
 
     <!-- ====================================================================
          Catalog browser, search + filters + results
@@ -139,9 +126,9 @@
       <div class="u-container">
         <div class="section-head">
           <span class="section-head__eyebrow">Browse Catalog</span>
-          <h2 class="section-head__title" id="browser-title">Search, Filter, and Sort</h2>
+          <h2 class="section-head__title" id="browser-title">Browse A to Z, Search, and Sort</h2>
           <p class="section-head__lede">
-            Search by product name, strength, or category. Filter by research category or jump to a letter. Sort by name or price. Default order is alphabetical, A-Z.
+            The catalog is alphabetical by default. Search by product name, strength, or category. Jump to a letter, or use the optional category filter. Sort by name or price.
           </p>
         </div>
 
@@ -439,7 +426,7 @@
     </div>
   </footer>
 
-  <script src="src/data/products.js?v=image-card-cleanup-v1" defer></script>
+  <script src="src/data/products.js?v=catalog-client-feedback-v1" defer></script>
   <!-- Phase 9: BreadcrumbList structured data. Production domain placeholder. -->
   <script type="application/ld+json">
   {
@@ -451,9 +438,9 @@
     ]
   }
   </script>
-  <script src="src/scripts/site-lock.js?v=image-card-cleanup-v1" defer></script>
+  <script src="src/scripts/site-lock.js?v=catalog-client-feedback-v1" defer></script>
 
-  <script src="src/scripts/site.js?v=image-card-cleanup-v1" defer></script>
-  <script src="src/scripts/catalog.js?v=image-card-cleanup-v1" defer></script>
+  <script src="src/scripts/site.js?v=catalog-client-feedback-v1" defer></script>
+  <script src="src/scripts/catalog.js?v=catalog-client-feedback-v1" defer></script>
 </body>
 </html>

@@ -75,8 +75,9 @@ COMPLIANCE GUARDRAILS
 CATEGORY ASSIGNMENT NOTES
 -------------------------
 Use the most conservative bucket. When uncertain, use specialty.
-    glp1       Semaglutide, Tirzepatide, Retatrutide, Liraglutide,
-               Mazdutide, Survodutide, Cagrilitide and its blends, GLP-1
+    glp1       Incretin Products. Semaglutide, Tirzepatide, Retatrutide,
+               Liraglutide, Survodutide, Cagrilitide and its blends, GLP-1.
+               Label rendered to UI as "Incretin Products" (not GLP-1 only).
     recovery   BPC 157, TB500, Thymosin Alpha-1, Thymalin, GHK-Cu,
                LL37, KPV, GLOW50, KLOW80, Hyaluronic Acid, BPC+TB blends
     longevity  NAD+ (Buffered), Epithalon, Glutathione, 5-Amino-1MQ,
@@ -208,8 +209,6 @@ ROWS = [
     ("LL37",                                      "5mg/vial",     45,   450,  "recovery"),
     ("Lyophilisate",                              "30mg/bottle",  36,   360,  "specialty"),
     # ----- M -----
-    ("Mazdutide",                                 "5mg/vial",     60,   600,  "glp1"),
-    ("Mazdutide",                                 "10mg/vial",   100,  1000,  "glp1"),
     ("Melanotan 1/MT1",                           "10mg/vial",    24,   240,  "specialty"),
     ("Melatonin",                                 "10mg/vial",    30,   300,  "cognitive"),
     ("MGF",                                       "2mg/vial",     33,   330,  "growth"),
@@ -337,7 +336,7 @@ def emit_js(entries) -> str:
         '',
         '  var CATEGORIES = [',
         '    { id: "all",        label: "All Categories",                    short: "All" },',
-        '    { id: "glp1",       label: "GLP-1 / Incretin Research",         short: "GLP-1" },',
+        '    { id: "glp1",       label: "Incretin Products",                 short: "Incretin" },',
         '    { id: "recovery",   label: "Recovery & Repair Research",        short: "Recovery" },',
         '    { id: "longevity",  label: "Longevity & NAD+ Research",         short: "Longevity" },',
         '    { id: "growth",     label: "Growth Hormone Research",           short: "Growth" },',

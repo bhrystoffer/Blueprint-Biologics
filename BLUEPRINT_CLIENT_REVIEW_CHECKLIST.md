@@ -25,7 +25,7 @@ Open each in a fresh tab and skim for tone, accuracy, and obvious issues.
 
 ## 2. Product catalog review
 
-- [ ] Catalog shows **165 products** in alphabetical / price-sheet order by default (A first, V last).
+- [ ] Catalog shows **163 products** in alphabetical order by default (A first, V last). Mazdutide removed per client request.
 - [ ] Use the **search bar**: confirm "Semaglutide", "AOD9604", "Tirzepatide", "NAD" all return expected products.
 - [ ] Use the **category filter** and the **A-Z letter filter** at the top of the catalog browse section.
 - [ ] Use the **sort dropdown**: try "1 Vial price, Low to High" and "10 Vial Box price, High to Low".

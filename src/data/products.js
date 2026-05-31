@@ -14,7 +14,7 @@
 
   var CATEGORIES = [
     { id: "all",        label: "All Categories",                    short: "All" },
-    { id: "glp1",       label: "GLP-1 / Incretin Research",         short: "GLP-1" },
+    { id: "glp1",       label: "Incretin Products",                 short: "Incretin" },
     { id: "recovery",   label: "Recovery & Repair Research",        short: "Recovery" },
     { id: "longevity",  label: "Longevity & NAD+ Research",         short: "Longevity" },
     { id: "growth",     label: "Growth Hormone Research",           short: "Growth" },
@@ -120,8 +120,6 @@
     { id: "liraglutide-30mg-vial", name: "Liraglutide", nameNormalized: "liraglutide", strength: "30mg/vial", format: "Lyophilized vial", letter: "L", category: "glp1", priceOneVial: 218, priceTenVialBox: 2180 },
     { id: "ll37-5mg-vial", name: "LL37", nameNormalized: "ll37", strength: "5mg/vial", format: "Lyophilized vial", letter: "L", category: "recovery", priceOneVial: 45, priceTenVialBox: 450 },
     { id: "lyophilisate-30mg-bottle", name: "Lyophilisate", nameNormalized: "lyophilisate", strength: "30mg/bottle", format: "Lyophilized bottle", letter: "L", category: "specialty", priceOneVial: 36, priceTenVialBox: 360 },
-    { id: "mazdutide-5mg-vial", name: "Mazdutide", nameNormalized: "mazdutide", strength: "5mg/vial", format: "Lyophilized vial", letter: "M", category: "glp1", priceOneVial: 60, priceTenVialBox: 600 },
-    { id: "mazdutide-10mg-vial", name: "Mazdutide", nameNormalized: "mazdutide", strength: "10mg/vial", format: "Lyophilized vial", letter: "M", category: "glp1", priceOneVial: 100, priceTenVialBox: 1000 },
     { id: "melanotan-1-mt1-10mg-vial", name: "Melanotan 1/MT1", nameNormalized: "melanotan-1-mt1", strength: "10mg/vial", format: "Lyophilized vial", letter: "M", category: "specialty", priceOneVial: 24, priceTenVialBox: 240 },
     { id: "melatonin-10mg-vial", name: "Melatonin", nameNormalized: "melatonin", strength: "10mg/vial", format: "Lyophilized vial", letter: "M", category: "cognitive", priceOneVial: 30, priceTenVialBox: 300 },
     { id: "mgf-2mg-vial", name: "MGF", nameNormalized: "mgf", strength: "2mg/vial", format: "Lyophilized vial", letter: "M", category: "growth", priceOneVial: 33, priceTenVialBox: 330 },

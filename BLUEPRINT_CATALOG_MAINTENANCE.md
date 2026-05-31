@@ -4,7 +4,7 @@ This document is the operator manual for keeping the product catalog up to date.
 
 ## Current state
 
-- **Product count:** 165
+- **Product count:** 163
 - **Source of truth (data):** `src/data/products.js`
 - **Source of truth (price sheet):** the official Blueprint Biologics price sheet PDF
 - **Generator:** `tools/gen_products.py`
@@ -48,7 +48,7 @@ Allowed category ids (defined in both the generator and the renderer):
 
 | id | label | use for |
 |---|---|---|
-| `glp1` | GLP-1 / Incretin Research | Semaglutide, Tirzepatide, Retatrutide, Liraglutide, Mazdutide, Survodutide, Cagrilitide and its blends, GLP-1 |
+| `glp1` | Incretin Products | Semaglutide, Tirzepatide, Retatrutide, Liraglutide, Survodutide, Cagrilitide and its blends, GLP-1. Rendered to the UI as "Incretin Products" (not GLP-1 only) since the catalog mixes GLP-1, GLP-2, and GLP-3 class compounds. |
 | `recovery` | Recovery & Repair Research | BPC 157, TB500, Thymosin Alpha-1, Thymalin, GHK-Cu, LL37, KPV, GLOW50, KLOW80, Hyaluronic Acid, BPC+TB blends |
 | `longevity` | Longevity & NAD+ Research | NAD+ (Buffered), Epithalon, Glutathione, 5-Amino-1MQ, FOXO4-DRI, Humanin, SS-31, MOTS-c, Pinealon, Cortagen, Crystagen |
 | `growth` | Growth Hormone Research | Ipamorelin, CJC-1295 (with/without DAC + blends), Sermorelin Acetate, Tesamorelin, HGH 191AA, HGH Fragments, GHRP-2, GHRP-6, Hexarelin Acetate, MGF, PEG MGF, IGF-1LR3, IGF-DES |
